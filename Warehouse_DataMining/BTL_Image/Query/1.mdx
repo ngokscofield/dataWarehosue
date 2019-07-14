@@ -1,0 +1,10 @@
+ 
+ SELECT NON EMPTY { [Measures].[Total Price] } ON COLUMNS, 
+ NON EMPTY { (
+ [Dim Store - Location].[City Name].[City Name].ALLMEMBERS* 
+ [Dim Store - Location].[State].[State].ALLMEMBERS * 
+ [Dim Store].[Tel].[Tel].ALLMEMBERS * 
+ [Dim Item].[Hierarchy].[Item Weight].ALLMEMBERS * 
+ [Dim Item].[Item Price].[Item Price].ALLMEMBERS ) } 
+ ON ROWS 
+ FROM [DW Analysis Order]
